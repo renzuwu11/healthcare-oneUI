@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
+    {% block additional_css %}{% endblock %}
+</head>
+<body>
+    <div class="dim-overlay"></div>
+    <header class="header">
+        <div class="menu-logo">
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <img class="syncore-logo" src="{{ url_for('static', filename='images/syncore-main.png') }}" alt="Company Logo">
+        </div>
+        <div class="user-profile">
+            <div class="user-info">
+                <p>{{ username }}</p>
+                <span>{{ role }}</span>
+            </div>            
+            <div class="user-dropdown">
+                <img src="{{ url_for('static', filename='images/User_icon.png') }}" alt="User Icon">
+                <div class="triangle"></div>
+                <div class="dropdown-content">
+                    <a href="#">
+                        Profile
+                        <img src="{{ url_for('static', filename='images/profile_icon.png') }}" alt="Profile Icon" class="dropdown-icon">
+                    </a>
+                    <a href="{{ url_for('logout') }}">
+                        Logout
+                        <img src="{{ url_for('static', filename='images/logout_icon.png') }}" alt="Logout Icon" class="dropdown-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- New Sidebar -->
+    <div class="compact-sidebar">
+        <div class="compact-sidebar-item">
+            <a href="{{ url_for('dashboard') }}">
+                <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
+                <span>Dashboard</span>
+            </a>
+        </div>
+        <div class="compact-sidebar-item">
+            <a href="{{ url_for('employee') }}">
+                <img src="{{ url_for('static', filename='images/employee_directory.png') }}" alt="Employee Directory Icon">
+                <span>Employee</span>
+            </a>
+        </div>
+        <div class="compact-sidebar-item">
+            <a href="{{ url_for('account') }}">
+                <img src="{{ url_for('static', filename='images/acc_summary_icon.png') }}" alt="Account Summary Icon">
+                <span>Ledger</span>
+            </a>
+        </div>
+        <div class="compact-sidebar-item">
+            <a href="{{ url_for('invoice') }}">
+                <img src="{{ url_for('static', filename='images/invoice_icon.png') }}" alt="Invoice Management Icon">
+                <span>Receivable</span>
+            </a>
+        </div>
+        <div class="compact-sidebar-item">
+            <a href="{{ url_for('asset') }}">
+                <img src="{{ url_for('static', filename='images/asset_icon.png') }}" alt="Asset Register Icon">
+                <span>Asset</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <div class="sidebar-menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div> 
+            <img class="syncore-logo-2" src="{{ url_for('static', filename='images/syncore-main.png') }}" alt="Company Logo">
+        </div>
+        
+        <!-- D A S H B O A R D -->
+        <div class="sidebar-header dashboard-item">
+            <a href="{{ url_for('dashboard') }}">
+                <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon" class="dashboard-icon">
+                Dashboard
+            </a>
+        </div> 
+
+        <!-- H U M A N ___ R E S O U R C E S  title here -->
+        <div class="sidebar-title-hr"> Human Resources </div>
+        
+        <!-- E M P L O Y E E ___ D I R E C T O R Y  title here -->
+        <div class="sidebar-header employee-directory-item">
+            <a href="{{ url_for('employee') }}">
+                <img src="{{ url_for('static', filename='images/employee_directory.png') }}" alt="Employee Directory Icon" class="dashboard-icon">
+                Employee Directory
+            </a>
+        </div>
+
+        <!-- F I N A N C E title here -->
+        <div class="sidebar-title-finance"> Finance </div>
+
+        <!-- G E N E R A L  L E D G E R link with sub-menu -->
+        <div class="sidebar-header general-ledger-item">
+            <a href="javascript:void(0);" class="sidebar-item">∙&nbsp;&nbsp;&nbsp;General Ledger
+                <img src="{{ url_for('static', filename='images/arrow_icon.png') }}" alt="Arrow Icon" class="arrow-icon"> 
+            </a>
+        </div> 
+        <div class="sub-menu">
+            <a href="{{ url_for('account') }}">
+                <img src="{{ url_for('static', filename='images/acc_summary_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Account Summary
+            </a>
+            <a href="{{ url_for('journal') }}">
+                <img src="{{ url_for('static', filename='images/journal_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Journal Entries
+            </a>
+            <a href="{{ url_for('financial') }}">
+                <img src="{{ url_for('static', filename='images/financial_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Financial Statements
+            </a>
+            <a href="{{ url_for('audit') }}">
+                <img src="{{ url_for('static', filename='images/audit_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Audit Trails
+            </a>
+        </div>
+
+        <!-- A C C O U N T ___ R E C I E V A B L E link with sub-menu -->
+        <div class="sidebar-header account-receivable-item">
+            <a href="javascript:void(0);" class="sidebar-item">∙&nbsp;&nbsp;&nbsp;Accounts Receivable
+                <img src="{{ url_for('static', filename='images/arrow_icon.png') }}" alt="Arrow Icon" class="arrow-icon">
+            </a>
+        </div>
+        <div class="sub-menu">
+            <a href="{{ url_for('invoice') }}">
+                <img src="{{ url_for('static', filename='images/invoice_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Invoice Management
+            </a>
+            <a href="{{ url_for('payment') }}">
+                <img src="{{ url_for('static', filename='images/payment_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Payment Tracking
+            </a>
+            <a href="{{ url_for('customer') }}">
+                <img src="{{ url_for('static', filename='images/customer_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Customer Statements
+            </a>
+            <a href="{{ url_for('received') }}">
+                <img src="{{ url_for('static', filename='images/outstanding_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Outstanding Receivables
+            </a>
+        </div>
+
+        <!-- A S S E T ___ M A N A G E M E N T link with sub-menu -->
+        <div class="sidebar-header asset-management-item">
+            <a href="javascript:void(0);" class="sidebar-item">∙&nbsp;&nbsp;&nbsp;Asset Management
+                <img src="{{ url_for('static', filename='images/arrow_icon.png') }}" alt="Arrow Icon" class="arrow-icon"> 
+            </a>
+        </div>
+        <div class="sub-menu">
+            <a href="{{ url_for('asset') }}">
+                <img src="{{ url_for('static', filename='images/asset_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Asset Register
+            </a>
+            <a href="{{ url_for('depreciation') }}">
+                <img src="{{ url_for('static', filename='images/depreciation_icon.png') }}" alt="Icon" class="sub-menu-icon">
+                Depreciation Tracking
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <header>
+            <h1>{% block header_title %}Default Header{% endblock %}</h1>
+        </header>
+
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
