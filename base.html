@@ -40,39 +40,41 @@
             </div>
         </div>
     </header>
-    <!-- New Sidebar -->
-    <div class="compact-sidebar">
-        <div class="compact-sidebar-item">
-            <a href="{{ url_for('dashboard') }}">
-                <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
-                <span>Dashboard</span>
-            </a>
+        <!-- New Sidebar -->
+        <div class="compact-sidebar">
+            {% block compact_sidebar %}
+            <div class="compact-sidebar-item">
+                <a href="{{ url_for('dashboard') }}">
+                    <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="compact-sidebar-item">
+                <a href="{{ url_for('employee') }}">
+                    <img src="{{ url_for('static', filename='images/employee_directory.png') }}" alt="Employee Directory Icon">
+                    <span>Employee</span>
+                </a>
+            </div>
+            <div class="compact-sidebar-item">
+                <a href="{{ url_for('account') }}">
+                    <img src="{{ url_for('static', filename='images/acc_summary_icon.png') }}" alt="Account Summary Icon">
+                    <span>Ledger</span>
+                </a>
+            </div>
+            <div class="compact-sidebar-item">
+                <a href="{{ url_for('invoice') }}">
+                    <img src="{{ url_for('static', filename='images/invoice_icon.png') }}" alt="Invoice Management Icon">
+                    <span>Receivable</span>
+                </a>
+            </div>
+            <div class="compact-sidebar-item">
+                <a href="{{ url_for('asset') }}">
+                    <img src="{{ url_for('static', filename='images/asset_icon.png') }}" alt="Asset Register Icon">
+                    <span>Asset</span>
+                </a>
+            </div>
+            {% endblock %}
         </div>
-        <div class="compact-sidebar-item">
-            <a href="{{ url_for('employee') }}">
-                <img src="{{ url_for('static', filename='images/employee_directory.png') }}" alt="Employee Directory Icon">
-                <span>Employee</span>
-            </a>
-        </div>
-        <div class="compact-sidebar-item">
-            <a href="{{ url_for('account') }}">
-                <img src="{{ url_for('static', filename='images/acc_summary_icon.png') }}" alt="Account Summary Icon">
-                <span>Ledger</span>
-            </a>
-        </div>
-        <div class="compact-sidebar-item">
-            <a href="{{ url_for('invoice') }}">
-                <img src="{{ url_for('static', filename='images/invoice_icon.png') }}" alt="Invoice Management Icon">
-                <span>Receivable</span>
-            </a>
-        </div>
-        <div class="compact-sidebar-item">
-            <a href="{{ url_for('asset') }}">
-                <img src="{{ url_for('static', filename='images/asset_icon.png') }}" alt="Asset Register Icon">
-                <span>Asset</span>
-            </a>
-        </div>
-    </div>
 
     <div class="sidebar">
         <div class="sidebar-logo">

@@ -633,6 +633,14 @@ body {
     color: gold; 
 }
 
+.main-content {
+    margin-left: 80px; 
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 100px;
+    box-sizing: border-box; 
+}
+
 /* Dim Overlay */
 .dim-overlay {
     position: fixed;
@@ -648,13 +656,5 @@ body {
 /* When sidebar is expanded, show the overlay */
 .dim-overlay.visible {
     display: block;
-}
-
-.main-content {
-    margin-left: 80px; 
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 100px;
-    box-sizing: border-box; 
 }
 
